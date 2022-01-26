@@ -51,20 +51,25 @@ public class loginTask {
         //WebDriverWait wait4 = new WebDriverWait(driver, Duration.ofSeconds(60));
         //wait4.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div/div[2]/div/div[4]/div/form/div/input")));
         WebElement withdrawlbox= driver.findElement(By.xpath("/html/body/div/div/div[2]/div/div[4]/div/form/div/input"));
-        //Thread.sleep(7000);
         withdrawlbox.sendKeys("400");
         Thread.sleep(5000);
+        WebDriverWait wait4 = new WebDriverWait(driver, Duration.ofSeconds(60));
+        wait4.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div/div[2]/div/div[4]/div/form/button")));
         WebElement withdrawl2button= driver.findElement(By.xpath("/html/body/div/div/div[2]/div/div[4]/div/form/button"));
+        Thread.sleep(5000);
         withdrawl2button.click();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         WebElement balance= driver.findElement(By.xpath("/html/body/div/div/div[2]/div/div[2]/strong[2]"));
         String balance1= balance.getText();
-        Thread.sleep(2000);
-        Assert.assertEquals(balance1,600);
+        System.out.println("balance" + balance1);
+       // Thread.sleep(2000);
+       // Assert.assertEquals(balance1,600);
         WebElement transation= driver.findElement(By.xpath("/html/body/div/div/div[2]/div/div[3]/button[1]"));
         transation.click();
-       // WebElement table = driver.findElement(By.xpath("/html/body/div/div/div[2]/div/div[2]/table"));
-       // List<WebElement> rows = table.findElements(By.tagName("tr"));
+        WebDriverWait wait5 = new WebDriverWait(driver, Duration.ofSeconds(60));
+        wait5.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div/div[2]/div/div[2]/table")));
+        WebElement table = driver.findElement(By.xpath("/html/body/div/div/div[2]/div/div[2]/table"));
+        List<WebElement> rows = table.findElements(By.tagName("tr"));
 
 
 
